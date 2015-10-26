@@ -1,0 +1,7 @@
+language: javascript
+install:
+  - npm install
+after_script:
+  - codeclimate-test-reporter < report/node/lcov.info
+script:
+  - npm test
