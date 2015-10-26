@@ -50,3 +50,32 @@ For every exposed method, it will be documented which methods does it require fr
 * ``init`` (non-standard)
   * used to initialize the module (documented above)
   * required baseFs methods: ``existsSync``
+
+* ``readFile``
+  * required: ``fs.readFile``
+* ``readFileSync``
+  * required: ``fs.readFileSync``
+* ``writeFile``
+  * required: ``fs.writeFile``
+* ``writeFileSync``
+  * required: ``fs.writeFileSync``
+* ``exists``
+  * required: ``fs.exists``
+* ``existsSync``
+  * required: ``fs.existsSync``
+* ``mkdir``
+  * required: ``fs.mkdir``
+* ``mkdirSync``
+  * required: ``fs.mkdirSync``
+* ``rmdir``
+  * required: ``fs.rmdir``
+* ``rmdirSync``
+  * required: ``fs.rmdirSync``
+* ``unlink``
+  * required: ``fs.unlink``
+* ``unlinkSync``
+  * required: ``fs.unlinkSync``
+* ``stat``
+  * required: ``fs.stat``
+* ``statSync``
+  * required: ``fs.statSync``

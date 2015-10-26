@@ -49,10 +49,16 @@ describe('initialization', function() {
     }).to.throw;
   });
 
+  it('should throw an exception if init was not yet called (correctly)', function() {
+    expect(function() {
+      fs.existsSync('foo');
+    }).to.throw('You need to call the init function first');
+  });
+
   it('should return config if eveyting went ok', function() {
     var config = fs.init({
       password: '12345',
-      root: './test'
+      root: './test/test'
     });
     expect(config.initialized).to.be.true;
     expect(config.check).to.not.throw;
@@ -62,7 +68,7 @@ describe('initialization', function() {
     expect(function() {
       fs.init({
         password: '12345',
-        root: './test'
+        root: './test/test'
       });
     }).to.throw('Init was already called');
   });

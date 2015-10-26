@@ -32,7 +32,7 @@ gulp.task('test', ['lint'], function (cb) {
             global: {
               functions: 90,
               lines: 90,
-              branches: 75 // TODO: Increase this once there is more code
+              branches: 80 // TODO: Increase this once there is more code
             }
           }
         }))
