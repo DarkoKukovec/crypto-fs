@@ -1,5 +1,9 @@
 var fs = require('fs');
 var path = require('path');
+var _ = require('lodash');
+
+var options = {};
+var configRef;
 
 var common = {
   clean: function(_dir) {
@@ -43,6 +47,19 @@ var common = {
       }
     }
     return folderList;
+  },
+  options: {
+    backup: function(config) {
+      options = {};
+      configRef = config;
+      _.extend(options, config);
+    },
+    restore: function() {
+      _.extend(configRef, options);
+    },
+    set: function(opts) {
+      _.extend(configRef, opts);
+    }
   }
 };
 

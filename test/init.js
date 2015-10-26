@@ -1,4 +1,5 @@
 var fs = require('../main');
+var common = require('./common');
 var expect = require('chai').expect;
 
 describe('initialization', function() {
@@ -62,6 +63,7 @@ describe('initialization', function() {
     });
     expect(config.initialized).to.be.true;
     expect(config.check).to.not.throw;
+    common.options.backup(config);
   });
 
   it('should throw an error if init is called multiple times', function() {
@@ -71,5 +73,15 @@ describe('initialization', function() {
         root: './test/test'
       });
     }).to.throw('Init was already called');
+  });
+
+  xit('should work with iv set', function() {
+    common.options.set({
+      iv: '1234567890abcdef',
+      password: 'abcabcabc1abcabcabc1abcabcabc132',
+      algorithm: 'aes256'
+    });
+    fs.mkdirSync('foo');
+    expect(fs.existsSync('foo')).to.be.true;
   });
 });

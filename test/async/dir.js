@@ -5,6 +5,7 @@ var common = require('../common');
 describe('mkdir & rmdir', function() {
   beforeEach(function() {
     common.clean();
+    common.options.restore();
   });
 
   it('should be able to create and remove a directory', function(done) {

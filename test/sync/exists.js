@@ -5,6 +5,7 @@ var common = require('../common');
 describe('existsSync', function() {
   beforeEach(function() {
     common.clean();
+    common.options.restore();
   });
 
   it('should return true when the file exists', function() {

@@ -5,6 +5,7 @@ var common = require('../common');
 describe('basic async operations', function() {
   beforeEach(function() {
     common.clean();
+    common.options.restore();
   });
 
   it('should save and read the file correctly', function(done) {

@@ -29,11 +29,7 @@ gulp.task('test', ['lint'], function (cb) {
         }))
         .pipe(istanbul.enforceThresholds({
           thresholds: {
-            global: {
-              functions: 90,
-              lines: 90,
-              branches: 80 // TODO: Increase this once there is more code
-            }
+            global: 90
           }
         }))
         .on('error', function(e) { console.error(e.message); })
