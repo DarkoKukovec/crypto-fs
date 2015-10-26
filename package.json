@@ -1,0 +1,35 @@
+{
+  "name": "crypto-fs",
+  "version": "1.0.0",
+  "description": "Wrapper around node fs module that encrypts the files on the fly",
+  "main": "main.js",
+  "scripts": {
+    "test": "gulp test",
+    "precommit": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkoKukovec/crypto-fs.git"
+  },
+  "keywords": [
+    "crypto",
+    "fs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DarkoKukovec/crypto-fs/issues"
+  },
+  "homepage": "https://github.com/DarkoKukovec/crypto-fs#readme",
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-istanbul": "^0.10.2",
+    "gulp-mocha": "^2.1.3",
+    "husky": "^0.10.1"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}

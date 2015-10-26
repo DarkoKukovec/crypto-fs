@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true,
+    "commonjs": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-extra-semi": 0,
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "curly": 2,
+    "eqeqeq": 1
+  }
+}
