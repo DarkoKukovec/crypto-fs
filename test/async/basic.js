@@ -1,29 +1,27 @@
 var fs = require('../../main');
 var expect = require('chai').expect;
+var common = require('../common');
 
 describe('basic async operations', function() {
+  beforeEach(function() {
+    common.clean();
+  });
+
   it('should save and read the file correctly', function(done) {
     fs.mkdir('foo', function(err) {
       if (err) {
-        done(err);
+        return done(err);
       }
       fs.writeFile('foo/bar.txt', 'Hello world!', function(err) {
         if (err) {
-          done(err);
+          return done(err);
         }
         fs.readFile('foo/bar.txt', 'utf-8', function(err, data) {
           if (err) {
-            done(err);
+            return done(err);
           }
           expect(data).to.equal('Hello world!');
-          fs.unlink('foo/bar.txt', function(err) {
-            if (err) {
-              done(err);
-            }
-            fs.rmdir('foo', function(err) {
-              done(err);
-            });
-          });
+          done(err);
         });
       });
     });
