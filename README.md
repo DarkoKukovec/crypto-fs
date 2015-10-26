@@ -26,11 +26,11 @@ Wrapper around node fs module that encrypts the files on the fly
 ### Options
 
 * baseFs (default: ``require("fs")``)
-  * what fs module should be used
+  * What fs module should be used
 * algorithm (default: ``"aes-256-ctr"``)
   * Any algorithm supported by node.js crypto module.
 * prefix (default: ``""``)
-  * Encrpted filename prefix.
+  * Encrypted filename prefix.
 * password (no default)
   * Please don't use 1234 as your password :)
 * root (no default)
