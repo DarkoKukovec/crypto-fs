@@ -15,7 +15,7 @@
     "crypto",
     "fs"
   ],
-  "author": "",
+  "author": "Darko Kukovec <darko@kukovec.eu>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DarkoKukovec/crypto-fs/issues"
