@@ -9,7 +9,7 @@ describe('createWriteStream', function() {
   });
 
   it('should read the correct data', function(done) {
-    var writeStream = fs.createWriteStream('foo.txt', {encoding: 'utf-8'});
+    var writeStream = fs.createWriteStream('foo.txt');
     writeStream.on('error', done);
     writeStream.write('Lorem ipsum!', function(err) {
       if (err) {
@@ -23,7 +23,7 @@ describe('createWriteStream', function() {
   });
 
   it('should read the correct data when end also contains data', function(done) {
-    var writeStream = fs.createWriteStream('foo.txt', {encoding: 'utf-8'});
+    var writeStream = fs.createWriteStream('foo.txt');
     writeStream.on('error', done);
     writeStream.write('Lorem ipsum!', function(err) {
       if (err) {

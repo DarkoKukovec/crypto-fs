@@ -13,7 +13,6 @@ describe('createReadStream', function() {
     var readStream = fs.createReadStream('foo.txt');
     readStream.on('error', done);
     readStream.on('end', function() {
-      // readStream.close();
       expect(data).to.equal('Lorem ipsum');
       done();
     });
