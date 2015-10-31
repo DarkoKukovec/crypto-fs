@@ -88,6 +88,10 @@ For every exposed method, it will be documented which methods does it require fr
   * required: ``fs.readdir``
 * ``readdirSync``
   * required: ``fs.readdirSync``
+* ``createReadStream``
+  * required: ``createReadStream``
+* ``createWriteStream``
+  * required: ``fs.createWriteStream``
 
 ## TODO
 

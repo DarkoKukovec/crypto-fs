@@ -13,3 +13,7 @@ require('./async/exists');
 require('./async/dir');
 require('./async/rename');
 require('./async/readdir');
+
+require('./async/createWriteStream');
+require('./async/createReadStream');
+require('./async/stream');
