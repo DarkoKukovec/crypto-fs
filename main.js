@@ -7,7 +7,8 @@ var implementedMethods = [
   'rmdir',
   'stat',
   'unlink',
-  'writeFile'
+  'writeFile',
+  'rename'
 ];
 
 var lib = {

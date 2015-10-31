@@ -79,3 +79,11 @@ For every exposed method, it will be documented which methods does it require fr
   * required: ``fs.stat``
 * ``statSync``
   * required: ``fs.statSync``
+* ``rename``
+  * required: ``fs.readFile``, ``fs.writeFile``, ``fs.unlink``
+* ``renameSync``
+  * required: ``fs.readFileSync``, ``fs.writeFileSync``, ``fs.unlinkSync``
+
+## TODO
+
+Add more tests based on https://github.com/nodejs/node/tree/master/test/parallel (fs & crypto)
