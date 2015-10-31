@@ -8,7 +8,8 @@ var implementedMethods = [
   'stat',
   'unlink',
   'writeFile',
-  'rename'
+  'rename',
+  'readdir'
 ];
 
 var lib = {

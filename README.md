@@ -84,6 +84,10 @@ For every exposed method, it will be documented which methods does it require fr
   * required: ``fs.readFile``, ``fs.writeFile``, ``fs.unlink``
 * ``renameSync``
   * required: ``fs.readFileSync``, ``fs.writeFileSync``, ``fs.unlinkSync``
+* ``readdir``
+  * required: ``fs.readdir``
+* ``readdirSync``
+  * required: ``fs.readdirSync``
 
 ## TODO
 
