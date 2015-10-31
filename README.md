@@ -3,8 +3,9 @@ Wrapper around node fs module that encrypts the files on the fly
 
 [![Code Climate](https://codeclimate.com/github/DarkoKukovec/crypto-fs/badges/gpa.svg)](https://codeclimate.com/github/DarkoKukovec/crypto-fs)
 [![Test Coverage](https://codeclimate.com/github/DarkoKukovec/crypto-fs/badges/coverage.svg)](https://codeclimate.com/github/DarkoKukovec/crypto-fs/coverage)
-[![Build Status](https://circleci.com/gh/DarkoKukovec/crypto-fs.svg?style=shield)](https://circleci.com/gh/DarkoKukovec/crypto-fs)
+[![Build Status](https://travis-ci.org/DarkoKukovec/crypto-fs.svg?branch=master)](https://travis-ci.org/DarkoKukovec/crypto-fs)
 [![Dependency Status](https://david-dm.org/DarkoKukovec/crypto-fs.svg)](https://david-dm.org/DarkoKukovec/crypto-fs)
+[![devDependency Status](https://david-dm.org/DarkoKukovec/crypto-fs/dev-status.svg)](https://david-dm.org/DarkoKukovec/crypto-fs#info=devDependencies)
 
 ## Installation
 

@@ -23,6 +23,7 @@
   "homepage": "https://github.com/DarkoKukovec/crypto-fs#readme",
   "devDependencies": {
     "chai": "^3.4.0",
+    "codeclimate-test-reporter": "^0.1.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.2",
