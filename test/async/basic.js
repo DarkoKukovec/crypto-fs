@@ -13,11 +13,11 @@ describe('basic async operations', function() {
       if (err) {
         return done(err);
       }
-      fs.writeFile('foo/bar.txt', 'Hello world!', function(err) {
+      fs.writeFile('foo/bar.txt', 'Hello world!', {encoding: 'binary'}, function(err) {
         if (err) {
           return done(err);
         }
-        fs.readFile('foo/bar.txt', 'utf-8', function(err, data) {
+        fs.readFile('foo/bar.txt', 'binary', function(err, data) {
           if (err) {
             return done(err);
           }

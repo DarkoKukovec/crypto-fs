@@ -9,11 +9,11 @@ Wrapper around node fs module that encrypts the files on the fly
 
 ## Installation
 
-``npm install DarkoKukovec/crypto-fs``
+``npm install DarkoKukovec/crypto-fs --save``
 
 ## Requirements
 
-Node.js 0.10+ or io.js 3+
+Node.js 0.10+
 
 ## Initialization
 
@@ -48,7 +48,7 @@ Node.js 0.10+ or io.js 3+
 ## Base FS
 
 By default, this module relies on the native fs module, but this can be changed. If you have a different module that exposes the same methods (e.g. ftp-fs, s3-fs), you can set it as the base fs.
-For every exposed method, it will be documented which methods does it require from the base fs. If you're using the default fs module, you can ignore this info.
+For every exposed method, it will be documented which methods does it require from the base fs (except for the same method). If you're using the default fs module, you can ignore this info.
 
 ## Implemented methods
 
@@ -56,47 +56,52 @@ For every exposed method, it will be documented which methods does it require fr
   * used to initialize the module (documented above)
   * required baseFs methods: ``existsSync``
 
-* ``readFile``
-  * required: ``fs.readFile``
-* ``readFileSync``
-  * required: ``fs.readFileSync``
-* ``writeFile``
-  * required: ``fs.writeFile``
-* ``writeFileSync``
-  * required: ``fs.writeFileSync``
-* ``exists``
-  * required: ``fs.exists``
-* ``existsSync``
-  * required: ``fs.existsSync``
-* ``mkdir``
-  * required: ``fs.mkdir``
-* ``mkdirSync``
-  * required: ``fs.mkdirSync``
-* ``rmdir``
-  * required: ``fs.rmdir``
-* ``rmdirSync``
-  * required: ``fs.rmdirSync``
-* ``unlink``
-  * required: ``fs.unlink``
-* ``unlinkSync``
-  * required: ``fs.unlinkSync``
-* ``stat``
-  * required: ``fs.stat``
-* ``statSync``
-  * required: ``fs.statSync``
+* ``readFile``, ``readFileSync``
+* ``writeFile``, ``writeFileSync``
+* ``exists``, ``existsSync``
+* ``access``, ``accessSync``
+* ``mkdir``, ``mkdirSync``
+* ``rmdir``, ``rmdirSync``
+* ``unlink``, ``unlinkSync``
+* ``stat``, ``statSync``
+* ``readdir`` ,``readdirSync``
 * ``rename``
   * required: ``fs.readFile``, ``fs.writeFile``, ``fs.unlink``
 * ``renameSync``
   * required: ``fs.readFileSync``, ``fs.writeFileSync``, ``fs.unlinkSync``
-* ``readdir``
-  * required: ``fs.readdir``
-* ``readdirSync``
-  * required: ``fs.readdirSync``
+
 * ``createReadStream``
-  * required: ``createReadStream``
 * ``createWriteStream``
-  * required: ``fs.createWriteStream``
 
 ## TODO
 
 Add more tests based on https://github.com/nodejs/node/tree/master/test/parallel (fs & crypto)
+
+### Methods (Sync and async)
+* ftruncate
+* truncate
+* chown
+* fchown
+* lchown
+* chmod
+* fchmod
+* lchmod
+* lstat
+* fstat
+* link
+* symlink
+* readlink
+* realpath
+* close (?)
+* open
+* utimes
+* futimes
+* fsync
+* write
+* read
+* appendFile
+
+### Watch methods
+* watchFile
+* unwatchFile
+* watch
