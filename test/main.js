@@ -15,6 +15,8 @@ require('./async/dir');
 require('./async/rename');
 require('./async/readdir');
 
-require('./async/createWriteStream');
-require('./async/createReadStream');
-require('./async/stream');
+require('./common/createWriteStream');
+require('./common/createReadStream');
+require('./common/stream');
+require('./common/watchFile');
+require('./common/watch');

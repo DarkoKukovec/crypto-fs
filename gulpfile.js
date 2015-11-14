@@ -32,7 +32,6 @@ gulp.task('test', ['lint'], function (cb) {
             global: 90
           }
         }))
-        .on('error', function(e) { console.error(e.message); })
         .on('end', cb);
     });
 });

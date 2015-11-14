@@ -10,6 +10,11 @@ var wrapperMethods = [
   'access'
 ];
 
+var watchMethods = [
+  'watchFile',
+  'unwatchFile'
+];
+
 var implementedMethods = [
   'readFile',
   'writeFile',
@@ -26,12 +31,17 @@ wrapperMethods.forEach(function(method) {
   lib[method + 'Sync'] = wrapper.fs(method + 'Sync');
 });
 
+watchMethods.forEach(function(method) {
+  lib[method] = wrapper.fs(method);
+});
+
 implementedMethods.forEach(function(method) {
   lib[method] = require('./lib/async/' + method)(lib);
   lib[method + 'Sync'] = require('./lib/sync/' + method)(lib);
 });
 
-lib.createReadStream = require('./lib/async/createReadStream');
-lib.createWriteStream = require('./lib/async/createWriteStream');
+lib.watch = require('./lib/common/watch');
+lib.createReadStream = require('./lib/common/createReadStream');
+lib.createWriteStream = require('./lib/common/createWriteStream');
 
 module.exports = Object.freeze(lib);

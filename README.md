@@ -72,6 +72,9 @@ For every exposed method, it will be documented which methods does it require fr
 
 * ``createReadStream``
 * ``createWriteStream``
+* ``watchFile``
+* ``unwatchFile``
+* ``watch``
 
 ## TODO
 
@@ -100,8 +103,3 @@ Add more tests based on https://github.com/nodejs/node/tree/master/test/parallel
 * write
 * read
 * appendFile
-
-### Watch methods
-* watchFile
-* unwatchFile
-* watch
