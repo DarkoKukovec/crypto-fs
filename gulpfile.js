@@ -36,3 +36,11 @@ gulp.task('test', ['lint'], function (cb) {
         .on('end', cb);
     });
 });
+
+gulp.task('develop', ['test'], function() {
+  gulp.watch([
+    'main.js',
+    'lib/**/*.js',
+    'test/**/*.js'
+  ], ['test']);
+});

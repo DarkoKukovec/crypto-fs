@@ -7,6 +7,7 @@ require('./sync/exists');
 require('./sync/dir');
 require('./sync/rename');
 require('./sync/readdir');
+require('./sync/stat');
 
 require('./async/basic');
 require('./async/exists');

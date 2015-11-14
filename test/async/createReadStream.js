@@ -21,4 +21,18 @@ describe('createReadStream', function() {
       data += chunk;
     });
   });
+
+  it('should read the correct data with encoding', function(done) {
+    fs.writeFileSync('foo.txt', 'Lorem ipsum');
+    var readStream = fs.createReadStream('foo.txt', {encoding: 'utf-8'});
+    readStream.on('error', done);
+    readStream.on('end', function() {
+      expect(data).to.equal('Lorem ipsum');
+      done();
+    });
+    var data = '';
+    readStream.on('data', function(chunk) {
+      data += chunk;
+    });
+  });
 });

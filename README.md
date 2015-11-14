@@ -13,8 +13,7 @@ Wrapper around node fs module that encrypts the files on the fly
 
 ## Requirements
 
-Node.js 4+ or io.js 3+
-Tested on Node 0.10+, but on older versions, there are (currently) issues with encoding when using streams.
+Node.js 0.10+ or io.js 3+
 
 ## Initialization
 

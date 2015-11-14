@@ -22,6 +22,20 @@ describe('createWriteStream', function() {
     });
   });
 
+  it('should read the correct data with encoding', function(done) {
+    var writeStream = fs.createWriteStream('foo.txt', {defaultEncoding: 'binary'});
+    writeStream.on('error', done);
+    writeStream.write('Lorem ipsum!', function(err) {
+      if (err) {
+        return done(err);
+      }
+      writeStream.end();
+
+      expect(fs.readFileSync('foo.txt', 'binary')).to.equal('Lorem ipsum!');
+      done();
+    });
+  });
+
   it('should read the correct data when end also contains data', function(done) {
     var writeStream = fs.createWriteStream('foo.txt');
     writeStream.on('error', done);
