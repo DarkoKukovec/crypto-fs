@@ -36,7 +36,7 @@ gulp.task('test', ['lint'], function (cb) {
     });
 });
 
-gulp.task('develop', ['test'], function() {
+gulp.task('develop', function() {
   gulp.watch([
     'main.js',
     'lib/**/*.js',

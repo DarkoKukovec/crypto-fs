@@ -10,16 +10,12 @@ var wrapperMethods = [
   'access'
 ];
 
-var watchMethods = [
-  'watchFile',
-  'unwatchFile'
-];
-
 var implementedMethods = [
   'readFile',
   'writeFile',
+  'appendFile', // requires readFile, writeFile and access
   'readdir',
-  'rename' // requires reqdFile, writeFile and unlink
+  'rename' // requires readFile, writeFile and unlink
 ];
 
 var lib = {
@@ -31,16 +27,14 @@ wrapperMethods.forEach(function(method) {
   lib[method + 'Sync'] = wrapper.fs(method + 'Sync');
 });
 
-watchMethods.forEach(function(method) {
-  lib[method] = wrapper.fs(method);
-});
-
 implementedMethods.forEach(function(method) {
   lib[method] = require('./lib/async/' + method)(lib);
   lib[method + 'Sync'] = require('./lib/sync/' + method)(lib);
 });
 
 lib.watch = require('./lib/common/watch');
+lib.watchFile = wrapper.fs('watchFile');
+lib.unwatchFile = wrapper.fs('unwatchFile');
 lib.createReadStream = require('./lib/common/createReadStream');
 lib.createWriteStream = require('./lib/common/createWriteStream');
 

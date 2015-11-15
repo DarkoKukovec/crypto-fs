@@ -1,6 +1,6 @@
 {
   "name": "crypto-fs",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "description": "Wrapper around node fs module that encrypts the files on the fly",
   "main": "main.js",
   "scripts": {
