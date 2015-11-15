@@ -80,6 +80,30 @@ For every exposed method, it will be documented which methods does it require fr
 * ``unwatchFile``
 * ``watch``
 
+### Not tested
+
+* ``close``, ``closeSync``
+* ``fstat``, ``fstatSync``
+* ``futimes``, ``futimesSync``
+* ``fchown``, ``fchownSync``
+* ``fchmod``, ``fchmodSync``
+* ``utimes``, ``utimesSync``
+* ``chown``, ``chownSync``
+* ``chmod``, ``chmodSync``
+* ``lstat``, ``lstatSync``
+* ``lchown``, ``lchownSync``
+* ``lchmod``, ``lchmodSync``
+
+## Limitations
+
+* ``watch`` filename will be incorect if it's not in the ``root`` folder - should be possible to fix
+* ``rename`` and ``renameSync`` create a new file and remove the old so the ``watch`` might not behave as expected (would it be better to actually rename the file and write the new content?)
+
+## Challenges
+
+* ``symlink`` and ``symlinkSync`` can't work out-of-the-box because the filename would be wrong and therefore the file content couldn't be decrypted. Could be solved by following the symlink in other crypto-fs methods.
+* ``link`` and ``linkSync`` have the same issue, but I don't currently see a solution for that
+
 ## TODO
 
 * Add more tests based on https://github.com/nodejs/node/tree/master/test/parallel (fs & crypto)
@@ -90,21 +114,13 @@ For every exposed method, it will be documented which methods does it require fr
 ### Methods (Sync and async)
 * ftruncate
 * truncate
-* chown
-* fchown
-* lchown
-* chmod
-* fchmod
-* lchmod
-* lstat
-* fstat
-* link
-* symlink
 * readlink
 * realpath
-* open
-* utimes
-* futimes
 * fsync
+
+* link
+* symlink
+
+* open
 * write
 * read

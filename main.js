@@ -1,5 +1,14 @@
 var init = require('./lib/init');
+var config = require('./lib/config');
 var wrapper = require('./lib/utils/wrappers');
+
+var proxyMethods = [
+  'fstat',
+  'close',
+  'futimes',
+  'fchown',
+  'fchmod'
+];
 
 var wrappedMethods = [
   'exists',
@@ -7,7 +16,13 @@ var wrappedMethods = [
   'rmdir',
   'stat',
   'unlink',
-  'access'
+  'access',
+  'utimes',
+  'chown',
+  'chmod',
+  'lstat',
+  'lchown',
+  'lchmod'
 ];
 
 var implementedMethods = [
@@ -21,6 +36,11 @@ var implementedMethods = [
 var lib = {
   init: init
 };
+
+proxyMethods.forEach(function(method) {
+  lib[method] = config.baseFs[method].bind(config.baseFs);
+  lib[method + 'Sync'] = config.baseFs[method + 'Sync'].bind(config.baseFs);
+});
 
 wrappedMethods.forEach(function(method) {
   lib[method] = wrapper.fs(method);
