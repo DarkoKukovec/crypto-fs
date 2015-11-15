@@ -9,7 +9,7 @@ Wrapper around node fs module that encrypts the files on the fly
 
 ## Installation
 
-``npm install DarkoKukovec/crypto-fs --save``
+``npm install crypto-fs --save``
 
 ## Requirements
 
