@@ -1,7 +1,7 @@
 var init = require('./lib/init');
 var wrapper = require('./lib/utils/wrappers');
 
-var wrapperMethods = [
+var wrappedMethods = [
   'exists',
   'mkdir',
   'rmdir',
@@ -22,7 +22,7 @@ var lib = {
   init: init
 };
 
-wrapperMethods.forEach(function(method) {
+wrappedMethods.forEach(function(method) {
   lib[method] = wrapper.fs(method);
   lib[method + 'Sync'] = wrapper.fs(method + 'Sync');
 });

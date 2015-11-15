@@ -70,9 +70,9 @@ For every exposed method, it will be documented which methods does it require fr
 * ``renameSync``
   * required: ``fs.readFileSync``, ``fs.writeFileSync``, ``fs.unlinkSync``
 * ``appendFile``
-  * required: ``access``, ``readFile``, ``writeFile``
+  * required: ``access`` (or ``exists``), ``readFile``, ``writeFile``
 * ``appendFileSync``
-  * required: ``accessSync``, ``readFileSync``, ``writeFileSync``
+  * required: ``accessSync`` (or ``existsSync``), ``readFileSync``, ``writeFileSync``
 
 * ``createReadStream``
 * ``createWriteStream``
@@ -84,6 +84,8 @@ For every exposed method, it will be documented which methods does it require fr
 
 * Add more tests based on https://github.com/nodejs/node/tree/master/test/parallel (fs & crypto)
 * More efficient appendFile
+* Support for relative & absolute paths
+  * Use the base fs if outside of the ``root`` path
 
 ### Methods (Sync and async)
 * ftruncate

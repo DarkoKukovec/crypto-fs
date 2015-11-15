@@ -12,6 +12,12 @@ gulp.task('lint', function () {
     .pipe(eslint.failOnError());
 });
 
+gulp.task('test-debug', function (cb) {
+  gulp.src('test/main.js', {read: false})
+    .pipe(mocha())
+    .on('end', cb);
+});
+
 gulp.task('test', ['lint'], function (cb) {
   gulp.src(['main.js', 'lib/**/*.js'])
     .pipe(istanbul())

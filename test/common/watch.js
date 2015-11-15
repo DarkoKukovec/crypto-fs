@@ -15,8 +15,12 @@ describe('watch', function() {
   it('should watch the file', function(done) {
     fs.writeFileSync('foo.txt', 'Foo', 'utf-8');
     var watcher = fs.watch('foo.txt', function(event, filename) {
-      expect(filename).to.equal('foo.txt');
       watcher.close();
+      expect(event).to.equal('change');
+      expect(filename).to.satisfy(function(val) {
+        // Null will be returned in some instances (platform dependent)
+        return val === null || val === 'foo.txt';
+      });
       done();
     });
     setTimeout(function() {
