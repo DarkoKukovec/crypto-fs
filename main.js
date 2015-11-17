@@ -1,6 +1,5 @@
 var init = require('./lib/init');
 var config = require('./lib/config');
-var wrapper = require('./lib/utils/wrappers');
 
 var proxyMethods = [
   'fstat',
@@ -30,6 +29,7 @@ var implementedMethods = [
   'writeFile',
   'appendFile', // requires readFile, writeFile and access
   'readdir',
+  'readlink',
   'rename' // requires readFile, writeFile and unlink
 ];
 
@@ -42,20 +42,24 @@ proxyMethods.forEach(function(method) {
   lib[method + 'Sync'] = config.baseFs[method + 'Sync'].bind(config.baseFs);
 });
 
+var wrapper = require('./lib/utils/wrappers')(lib);
 wrappedMethods.forEach(function(method) {
-  lib[method] = wrapper.fs(method);
-  lib[method + 'Sync'] = wrapper.fs(method + 'Sync');
+  lib[method] = wrapper.fs(method, 1, false);
+  lib[method + 'Sync'] = wrapper.fsSync(method + 'Sync', 1, false);
 });
+
+lib.symlink = wrapper.fs('symlink', 2, false);
+lib.symlinkSync = wrapper.fsSync('symlinkSync', 2, false);
 
 implementedMethods.forEach(function(method) {
   lib[method] = require('./lib/async/' + method)(lib);
   lib[method + 'Sync'] = require('./lib/sync/' + method)(lib);
 });
 
-lib.watch = require('./lib/common/watch');
-lib.watchFile = wrapper.fs('watchFile');
-lib.unwatchFile = wrapper.fs('unwatchFile');
-lib.createReadStream = require('./lib/common/createReadStream');
-lib.createWriteStream = require('./lib/common/createWriteStream');
+lib.watch = require('./lib/common/watch')(lib);
+lib.watchFile = wrapper.fsSync('watchFile', 1);
+lib.unwatchFile = wrapper.fsSync('unwatchFile', 1);
+lib.createReadStream = require('./lib/common/createReadStream')(lib);
+lib.createWriteStream = require('./lib/common/createWriteStream')(lib);
 
 module.exports = Object.freeze(lib);

@@ -9,6 +9,7 @@ require('./sync/rename');
 require('./sync/readdir');
 require('./sync/stat');
 require('./sync/appendFile');
+require('./sync/symlink');
 
 require('./async/basic');
 require('./async/exists');
@@ -17,6 +18,7 @@ require('./async/rename');
 require('./async/readdir');
 require('./async/stat');
 require('./async/appendFile');
+require('./async/symlink');
 
 require('./common/createWriteStream');
 require('./common/createReadStream');

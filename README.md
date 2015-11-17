@@ -48,7 +48,9 @@ Node.js 0.10+
 ## Base FS
 
 By default, this module relies on the native fs module, but this can be changed. If you have a different module that exposes the same methods (e.g. ftp-fs, s3-fs), you can set it as the base fs.
-For every exposed method, it will be documented which methods does it require from the base fs (except for the same method). If you're using the default fs module, you can ignore this info.
+For every exposed method, it will be documented which methods does it require from the base fs (except for the same method, ``readlink``/``readlinkSync`` and ``lstat``/``lstatSync``). ``readlink``/``readlinkSync`` and ``lstat``/``lstatSync`` are used to determine if the given path is a symlink, and in this case follow the symlink.
+
+If you're using the default fs module, you can ignore this info.
 
 ## Implemented methods
 
@@ -65,6 +67,9 @@ For every exposed method, it will be documented which methods does it require fr
 * ``unlink``, ``unlinkSync``
 * ``stat``, ``statSync``
 * ``readdir`` ,``readdirSync``
+* ``readlink``, ``readlinkSync``
+* ``symlink``, ``symlinkSync``
+* ``lstat``, ``lstatSync``
 * ``rename``
   * required: ``fs.readFile``, ``fs.writeFile``, ``fs.unlink``
 * ``renameSync``
@@ -90,19 +95,21 @@ For every exposed method, it will be documented which methods does it require fr
 * ``utimes``, ``utimesSync``
 * ``chown``, ``chownSync``
 * ``chmod``, ``chmodSync``
-* ``lstat``, ``lstatSync``
 * ``lchown``, ``lchownSync``
 * ``lchmod``, ``lchmodSync``
 
-## Limitations
+## Limitations / known issues
 
+* all paths should be relative to the root folder and they should be inside of the root folder
 * ``watch`` filename will be incorect if it's not in the ``root`` folder - should be possible to fix
 * ``rename`` and ``renameSync`` create a new file and remove the old so the ``watch`` might not behave as expected (would it be better to actually rename the file and write the new content?)
+* Renaming of folders isn't currently supported. You should create a new folder and move all the files in it.
+* symlinks only work if both the file and symlink are inside of the root folder
+* folder or symlink rename will probably corrupt the file - don't use it yet
 
 ## Challenges
 
-* ``symlink`` and ``symlinkSync`` can't work out-of-the-box because the filename would be wrong and therefore the file content couldn't be decrypted. Could be solved by following the symlink in other crypto-fs methods.
-* ``link`` and ``linkSync`` have the same issue, but I don't currently see a solution for that
+* ``link`` and ``linkSync`` can't work because the filename would be wrong and therefore the file content couldn't be decrypted. Not yet sure if it's possible to solve this.
 
 ## TODO
 
@@ -110,17 +117,24 @@ For every exposed method, it will be documented which methods does it require fr
 * More efficient appendFile
 * Support for relative & absolute paths
   * Use the base fs if outside of the ``root`` path
+* skip symlink check if baseFs doesn't suport either lstat or readlink
+* do normal rename if the file is a symlink
+* rename all files inside of a folder on folder rename
+* remove ./ from the file paths
 
 ### Methods (Sync and async)
 * ftruncate
 * truncate
-* readlink
 * realpath
 * fsync
 
 * link
-* symlink
 
 * open
 * write
 * read
+
+## Attribution
+
+* Stream functionality based on [node-efs](https://github.com/kunklejr/node-efs)
+* Internal "deep" ``readlink`` based on [readlink](https://github.com/ralphtheninja/readlink)
