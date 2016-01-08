@@ -32,7 +32,7 @@
     "husky": "^0.10.1"
   },
   "dependencies": {
-    "async": "^1.5.1",
+    "async": "^1.5.2",
     "lodash": "^3.10.1"
   }
 }
