@@ -29,7 +29,7 @@
     "gulp-eslint": "^2.0.0",
     "gulp-istanbul": "^0.10.2",
     "gulp-mocha": "^2.2.0",
-    "husky": "^0.10.1"
+    "husky": "^0.11.0"
   },
   "dependencies": {
     "async": "^1.5.2",
