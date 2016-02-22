@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "async": "^1.5.2",
-    "lodash": "^4.4.0"
+    "lodash": "^4.5.1"
   }
 }
