@@ -27,7 +27,7 @@
     "codeclimate-test-reporter": "^0.3.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
-    "gulp-istanbul": "^0.10.2",
+    "gulp-istanbul": "^1.0.0",
     "gulp-mocha": "^2.2.0",
     "husky": "^0.11.0"
   },
