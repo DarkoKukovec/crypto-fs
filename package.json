@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "async": "^2.0.1",
-    "lodash": "^4.8.2"
+    "lodash": "^4.8.2",
+    "more-streams": "^0.5.7"
   }
 }
