@@ -13,7 +13,7 @@ Wrapper around node fs module that encrypts the files on the fly
 
 ## Requirements
 
-Node.js 0.10+
+Node.js 4+
 
 ## Initialization
 

@@ -35,5 +35,8 @@
     "async": "^2.0.1",
     "lodash": "^4.8.2",
     "more-streams": "^0.5.7"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
