@@ -32,3 +32,5 @@ report/*
 # Test files
 test/test/*
 !test/test/.gitkeep
+
+package-lock.json
