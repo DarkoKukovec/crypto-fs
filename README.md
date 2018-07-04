@@ -25,7 +25,8 @@ Node.js 4+
       password: '1234',
       root: './test/dest',
       iv: null,
-      realSize: false
+      realSize: false,
+      dontEncPath : false
     });
 
 ### Options
@@ -44,6 +45,8 @@ Node.js 4+
   * If initialization vector is given, Cipheriv will be used.
 * realSize (default: ``false``)
   * Encrypted files have marginaly bigger file size than the normal sizes. To get the real file size, the file needs to be decrypted, so set this to true only if you need to.
+* dontEncPath (default: ``false``)
+  * If true, the filename will not be encrypted. Might solve issues of path in Windows. 
 
 ## Base FS
 
